@@ -1,15 +1,15 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
+#need to fix the mail username and password for increased security later in the development process
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_USERNAME = 'devtest.scott.underwood@gmail.com'
+    MAIL_PASSWORD = '0@Q2JxULGjnrFRJy7bGh'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
