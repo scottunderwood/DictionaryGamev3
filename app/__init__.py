@@ -1,4 +1,5 @@
-from flask import Flask, render_template, session, redirect, url_for, flash
+#next line updated for socket test
+from flask import Flask, render_template, session, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_moment import Moment
