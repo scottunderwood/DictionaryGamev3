@@ -7,6 +7,8 @@ from flask_migrate import Migrate, MigrateCommand
 #socket test (1 line)
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from flask import session, request
+#testing socket input to trigger creation of a DictGame object (importing game logic)
+from game_logic_v3_test import run_game_test
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
@@ -122,6 +124,11 @@ def test_connect():
 @socketio.on('disconnect', namespace='/')
 def test_disconnect():
     print('Client disconnected', request.sid)
+
+#game logic from socket input test
+@socketio.on('game_logic_button_request', namespace='/')
+def game_logic_b_request():
+    run_game_test()
 
     
 if __name__ == '__main__':

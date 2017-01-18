@@ -92,6 +92,11 @@
             socket.emit('disconnect_request');
             return false;
         });
+        //attempt to run game from socket input
+        $('form#game_logic_button').submit(function(event) {
+            socket.emit('game_logic_button_request');
+            return false;
+        });
     });
 </script>
 {% endblock %}
@@ -166,6 +171,11 @@
     <form id="disconnect" method="POST" action="#">
         <input type="submit" value="Disconnect">
     </form>
+    <!--attempt to run game logic from socket input-->
+    <form id="game_logic_button" method="POST" action="#">
+        <input type="submit" value="Run Game Logic">
+    </form>
+    <!--end game logic test-->
     <h2>Receive:</h2>
     <div id="log"></div>
 </div>
