@@ -1,5 +1,5 @@
-#next line updated for socket test
-from flask import Flask, render_template, session, redirect, url_for, flash, request
+#next line updated for socket test // also updated for jQuery test
+from flask import Flask, render_template, session, redirect, url_for, flash, request, jsonify
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_moment import Moment
@@ -32,6 +32,9 @@ def create_app(config_name):
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
+    
+    from .game import game as game_blueprint
+    app.register_blueprint(game_blueprint, url_prefix='/game')
     
     return app
 

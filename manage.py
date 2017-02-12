@@ -44,7 +44,6 @@ def background_thread():
                       {'data': 'Server generated event', 'count': count},
                       namespace='/')
 
-
 @app.route('/')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)

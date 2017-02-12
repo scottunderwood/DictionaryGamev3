@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Dictionary Game{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}! This is the game!</h1>
+</div>
+<div class="col-md-4">
+    <h1>{{ g_prompt }}</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
+<!--socketio test holder-->
+<div class='col-md-4'>
+    <h1>Flask-SocketIO Test</h1>
+    <p>Async mode is: <b>{{ async_mode }}</b></p>
+    <p>Average ping/pong latency: <b><span id="ping-pong"></span>ms</b></p>
+    <h2>Send:</h2>
+    <form id="join" method="POST" action='#'>
+        <input type="text" name="join_room" id="join_room" placeholder="Room Name">
+        <input type="submit" value="Join Room">
+    </form>
+    <form id="leave" method="POST" action='#'>
+        <input type="text" name="leave_room" id="leave_room" placeholder="Room Name">
+        <input type="submit" value="Leave Room">
+    </form>
+    <form id="send_room" method="POST" action='#'>
+        <input type="text" name="room_name" id="room_name" placeholder="Room Name">
+        <input type="text" name="room_data" id="room_data" placeholder="Message">
+        <input type="submit" value="Send to Room">
+    </form>
+    <form id="close" method="POST" action="#">
+        <input type="text" name="close_room" id="close_room" placeholder="Room Name">
+        <input type="submit" value="Close Room">
+    </form>
+</div>
+<div class='col-md-4'>    
+    <h2>Receive:</h2>
+    <div id="log"></div>
+</div>
+{% endblock %}

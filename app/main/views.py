@@ -25,3 +25,9 @@ def index():
     return render_template('index.html',
                            form=form, name=session.get('name'),
                            known=session.get('known', False))
+
+
+#attempt at adding a new holding tank for the socket forms
+@main.route('/socketforms', methods=['GET', 'POST'])
+def socket_forms_view():
+    return render_template('socketforms.html')
