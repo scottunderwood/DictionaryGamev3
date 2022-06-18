@@ -27,7 +27,7 @@ itsdangerous==0.24
 pathlib==1.0.1
 pyScss==1.3.3
 python-editor==1.0.3
-python-engineio==1.1.0
+python-engineio==3.8.2.post1
 python-socketio==1.6.2
 requests==2.2.1
 six==1.10.0
